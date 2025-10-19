@@ -11,9 +11,13 @@ config_version=5
 [application]
 
 config/name="HH Game"
-run/main_scene="uid://b0mkk6avl8lo8"
+run/main_scene="uid://bxg8sbm00tp2b"
 config/features=PackedStringArray("4.5", "C#", "Forward Plus")
 config/icon="res://icon.svg"
+
+[autoload]
+
+Globals="*res://globalz.gd"
 
 [display]
 

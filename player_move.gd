@@ -19,7 +19,11 @@ func _process(delta):
 		moving = true
 		direction.x += 1
 		$Player.flip_h = 0
-		
+	
+	if Input.is_action_pressed("ui_accept"):
+		# if position.x <= -26 && position.x >=-20 && position.y <= -643 && position.y >= -628:
+		get_tree().change_scene_to_file("res://inside.tscn")
+	
 	if moving:
 		$Player.play("default")
 	elif !moving:

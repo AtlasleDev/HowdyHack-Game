@@ -1,7 +1,9 @@
-[gd_scene load_steps=3 format=3 uid="uid://bxg8sbm00tp2b"]
+[gd_scene load_steps=5 format=3 uid="uid://bxg8sbm00tp2b"]
 
 [ext_resource type="Texture2D" uid="uid://cycvi8jwhuvrc" path="res://revtitlescreen.png" id="1_ouk20"]
 [ext_resource type="FontFile" uid="uid://pvckkosyucqd" path="res://upheavtt.ttf" id="2_mae5d"]
+[ext_resource type="Script" uid="uid://dtgl25xb46doi" path="res://menybut.gd" id="3_mae5d"]
+[ext_resource type="Texture2D" uid="uid://cqch3k2p58oug" path="res://IMG_0469.jpg" id="4_4hy44"]
 
 [node name="Node2D" type="Node2D"]
 
@@ -29,3 +31,11 @@ theme_override_fonts/font = ExtResource("2_mae5d")
 theme_override_font_sizes/font_size = 37
 text = "Start Game
 "
+script = ExtResource("3_mae5d")
+
+[node name="Img0469" type="Sprite2D" parent="Control"]
+z_index = -2
+position = Vector2(11, -73)
+texture = ExtResource("4_4hy44")
+
+[connection signal="button_down" from="Control/Button" to="Control/Button" method="_on_button_down"]

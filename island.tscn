@@ -1,6 +1,7 @@
-[gd_scene load_steps=15 format=3 uid="uid://b0mkk6avl8lo8"]
+[gd_scene load_steps=26 format=3 uid="uid://b0mkk6avl8lo8"]
 
 [ext_resource type="Texture2D" uid="uid://cqch3k2p58oug" path="res://IMG_0469.jpg" id="1_0iamf"]
+[ext_resource type="Script" uid="uid://e70eoacqxms" path="res://globals.gd" id="1_ad6l7"]
 [ext_resource type="Script" uid="uid://cfwnw5kxs6fp6" path="res://player_move.gd" id="1_hdtfb"]
 [ext_resource type="Texture2D" uid="uid://bkd7b682ovogm" path="res://character3_transparent.png" id="2_gljqa"]
 [ext_resource type="Texture2D" uid="uid://8sxsri0ems2f" path="res://character2_transparent.png" id="2_qurb2"]
@@ -9,6 +10,12 @@
 [ext_resource type="FontFile" uid="uid://pvckkosyucqd" path="res://upheavtt.ttf" id="6_b4opu"]
 [ext_resource type="Script" uid="uid://bromq4g74kaf1" path="res://Dialogue.gd" id="6_c7iw8"]
 [ext_resource type="Texture2D" uid="uid://duxaxh6liy4ck" path="res://MissRev-1.png.png" id="7_5jwi3"]
+[ext_resource type="Texture2D" uid="uid://cqsf6alfn3iv4" path="res://pixil-frame-0.png" id="10_8ervs"]
+[ext_resource type="Script" uid="uid://jy02mxcq2v67" path="res://openig.gd" id="11_kjlm2"]
+[ext_resource type="Texture2D" uid="uid://c0iv0h3y5rcdb" path="res://pixil-frame-0 (1).png" id="11_nytiv"]
+[ext_resource type="Texture2D" uid="uid://bcgwfgthbwfvr" path="res://pixil-frame-0 (3).png" id="12_kjlm2"]
+[ext_resource type="Texture2D" uid="uid://f31js2ilg4ho" path="res://pixil-frame-0 (4).png" id="13_ad6l7"]
+[ext_resource type="Script" uid="uid://bibg7mxgvdvnb" path="res://door.gd" id="16_cj5nf"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_0iamf"]
 animations = [{
@@ -118,35 +125,215 @@ tracks/2/keys = {
 "values": [Color(1, 1, 1, 0)]
 }
 
+[sub_resource type="Animation" id="Animation_ad6l7"]
+resource_name = "Textboxmove2"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-576, 180), Vector2(-576, 324)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("MissRev1_png:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.16666667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(789, -142), Vector2(789, -57)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("MissRev1_png:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.16666669),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_1y0xo"]
 _data = {
 &"RESET": SubResource("Animation_8ervs"),
-&"Textboxmove": SubResource("Animation_c7iw8")
+&"Textboxmove": SubResource("Animation_c7iw8"),
+&"Textboxmove2": SubResource("Animation_ad6l7")
+}
+
+[sub_resource type="Animation" id="Animation_1y0xo"]
+resource_name = "Rocket"
+length = 11.27
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(9.833333, 9.966666, 10.066667, 10.133333),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [ExtResource("10_8ervs"), ExtResource("11_nytiv"), ExtResource("12_kjlm2"), ExtResource("13_ad6l7")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(9.833333, 10.066667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(347.99997, -1736), Vector2(347.99994, -961)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("../CutsceneCam:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 4.1666665, 4.2, 4.2666664, 6.4666667, 6.5, 9.3, 10.066667, 10.2, 10.333333, 10.466666, 10.6, 10.733334, 10.866667),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(-1976, 1358), Vector2(-82, -385), Vector2(1581, 1392), Vector2(1581, 1392), Vector2(-1127, -571), Vector2(285, 285), Vector2(285, -998), Vector2(285, -998), Vector2(189, -998), Vector2(461, -998), Vector2(189, -998), Vector2(461, -998), Vector2(189, -998), Vector2(285, -998)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("../CutsceneCam/Darkness:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 3.75, 4.1666665, 4.266667, 4.6000004, 6.0333333, 6.45, 6.5331607, 6.866494),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("../PlayerCam/Player:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0.033333335, 11.266666),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+
+[sub_resource type="Animation" id="Animation_k1f3g"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("10_8ervs")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(347.99994, -961)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("../CutsceneCam:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-1976, 1358)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("../CutsceneCam/Darkness:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("../PlayerCam/Player:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_k1f3g"]
+_data = {
+&"RESET": SubResource("Animation_k1f3g"),
+&"Rocket": SubResource("Animation_1y0xo")
 }
 
 [node name="Node2D" type="Node2D"]
+script = ExtResource("1_ad6l7")
 
 [node name="PlayerCam" type="Camera2D" parent="."]
-position = Vector2(-500, 500)
+unique_name_in_owner = true
+position = Vector2(302, -704)
+enabled = false
 script = ExtResource("1_hdtfb")
 
 [node name="Player" type="AnimatedSprite2D" parent="PlayerCam"]
-scale = Vector2(0.15, 0.15)
+unique_name_in_owner = true
+visible = false
+z_index = 1
+scale = Vector2(0.1, 0.1)
 sprite_frames = SubResource("SpriteFrames_0iamf")
 animation = &"Idle"
 
 [node name="text" type="ColorRect" parent="PlayerCam"]
 visible = false
-z_index = 1
+z_index = 2
 offset_left = -576.0
 offset_top = 324.0
 offset_right = 576.0
-offset_bottom = 467.99994
+offset_bottom = 468.0
 color = Color(0.474797, 8.4830447e-07, 2.4065375e-07, 1)
 script = ExtResource("6_c7iw8")
 
 [node name="text" type="RichTextLabel" parent="PlayerCam/text"]
-z_index = 2
+z_index = 3
 layout_mode = 0
 offset_right = 1152.0
 offset_bottom = 142.0
@@ -157,6 +344,7 @@ text = "Sample text"
 scroll_active = false
 
 [node name="MissRev1_png" type="Sprite2D" parent="PlayerCam/text"]
+unique_name_in_owner = true
 modulate = Color(1, 1, 1, 0)
 z_index = -1
 position = Vector2(789, -57)
@@ -172,3 +360,50 @@ libraries = {
 z_index = -1
 scale = Vector2(3, 3)
 texture = ExtResource("1_0iamf")
+
+[node name="Rocket" type="Sprite2D" parent="."]
+position = Vector2(347.99994, -961)
+scale = Vector2(7.43, 7.43)
+texture = ExtResource("10_8ervs")
+script = ExtResource("11_kjlm2")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Rocket"]
+libraries = {
+&"": SubResource("AnimationLibrary_k1f3g")
+}
+
+[node name="CutsceneCam" type="Camera2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(-1976, 1358)
+
+[node name="Darkness" type="ColorRect" parent="CutsceneCam"]
+modulate = Color(1, 1, 1, 0)
+z_index = 2
+offset_left = -579.0
+offset_top = -335.0
+offset_right = 601.0
+offset_bottom = 348.0
+color = Color(0, 0, 0, 1)
+
+[node name="ColorRect" type="ColorRect" parent="."]
+z_index = -2
+offset_left = -3694.0
+offset_top = -2725.0
+offset_right = 3235.0
+offset_bottom = 2683.0
+color = Color(0.24313726, 0.5254902, 0.61960787, 1)
+
+[node name="ColorRect2" type="ColorRect" parent="."]
+z_index = -1
+offset_left = -2124.0
+offset_top = -1459.0
+offset_right = -2004.0
+offset_bottom = 1431.0
+color = Color(0.24313726, 0.5254902, 0.61960787, 1)
+
+[node name="Area2D" type="Area2D" parent="."]
+unique_name_in_owner = true
+z_index = 1
+position = Vector2(-24, -639)
+collision_layer = 2
+script = ExtResource("16_cj5nf")
