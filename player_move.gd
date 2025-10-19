@@ -14,9 +14,11 @@ func _process(delta):
 	if Input.is_action_pressed("ui_left"):
 		moving = true
 		direction.x -= 1
+		$Player.flip_h = 1
 	if Input.is_action_pressed("ui_right"):
 		moving = true
 		direction.x += 1
+		$Player.flip_h = 0
 		
 	if moving:
 		$Player.play("default")
