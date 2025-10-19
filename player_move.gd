@@ -39,7 +39,7 @@ func _process(delta):
 				debounce = true
 		elif position.x >= 346 && position.x <= 394 && position.y >= 148 && position.y <= 247:
 			if !dialogueStop:
-				Globals.sayText.emit("Oh, hello.#Wouldn't it be nice to say hello back?#Type a print statement.&")
+				Globals.sayText.emit("Oh, hello.#Wouldn't it be nice to say hello back?#Type a print statement.&print('Hello!')")
 				dialogueStop = true
 	
 	if moving:

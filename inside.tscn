@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://cq3g2vne60piy"]
+[gd_scene load_steps=20 format=3 uid="uid://cq3g2vne60piy"]
 
 [ext_resource type="Script" uid="uid://cfwnw5kxs6fp6" path="res://player_move.gd" id="1_7w7nv"]
 [ext_resource type="Texture2D" uid="uid://bkd7b682ovogm" path="res://character3_transparent.png" id="2_wu44j"]
@@ -10,6 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://duxaxh6liy4ck" path="res://MissRev-1.png.png" id="9_qinqa"]
 [ext_resource type="Texture2D" uid="uid://da6i35o3xxm3m" path="res://icon.svg" id="10_btxns"]
 [ext_resource type="Texture2D" uid="uid://cxoyppomtcm48" path="res://IMG_0484.jpg" id="10_wu44j"]
+[ext_resource type="Script" uid="uid://cgtrcx7656yxt" path="res://talkwithnpc.gd" id="11_btxns"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_rdc0f"]
 animations = [{
@@ -228,6 +229,16 @@ libraries = {
 &"": SubResource("AnimationLibrary_1y0xo")
 }
 
+[node name="CodeBox" type="TextEdit" parent="PlayerCam"]
+visible = false
+z_index = 2
+offset_left = -174.0
+offset_top = 16.0
+offset_right = 139.0
+offset_bottom = 131.0
+placeholder_text = "INPUT CODE"
+script = ExtResource("11_btxns")
+
 [node name="Img0484" type="Sprite2D" parent="."]
 texture = ExtResource("10_wu44j")
 
@@ -240,3 +251,5 @@ texture = ExtResource("10_btxns")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Npc/Area2D"]
 position = Vector2(-1.5, -2)
 shape = SubResource("RectangleShape2D_btxns")
+
+[connection signal="text_changed" from="PlayerCam/CodeBox" to="PlayerCam/CodeBox" method="_on_text_changed"]

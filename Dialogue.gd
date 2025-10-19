@@ -32,7 +32,7 @@ func texty(text) -> void:
 			break
 		if text[i] == "&":
 			$text.text = $text.text.replace("&", "")
-			Globals.printGame.emit("print('Hello!')")
+			Globals.printGame.emit(text.substr(i+1, len(text)))
 			break
 		$text.text = $text.text + text[i]
 		await get_tree().create_timer(0.05).timeout
