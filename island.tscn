@@ -1,13 +1,22 @@
-[gd_scene load_steps=7 format=3 uid="uid://b0mkk6avl8lo8"]
+[gd_scene load_steps=8 format=3 uid="uid://b0mkk6avl8lo8"]
 
 [ext_resource type="Texture2D" uid="uid://cqch3k2p58oug" path="res://IMG_0469.jpg" id="1_0iamf"]
 [ext_resource type="Script" uid="uid://cfwnw5kxs6fp6" path="res://player_move.gd" id="1_hdtfb"]
+[ext_resource type="Texture2D" uid="uid://bkd7b682ovogm" path="res://character3_transparent.png" id="2_gljqa"]
 [ext_resource type="Texture2D" uid="uid://8sxsri0ems2f" path="res://character2_transparent.png" id="2_qurb2"]
 [ext_resource type="Texture2D" uid="uid://cs8w5o0rxo6uh" path="res://character1_transparent.png" id="3_04hb4"]
 [ext_resource type="Texture2D" uid="uid://bsavrw6pdjpd4" path="res://character_transparent.png" id="4_04hb4"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_0iamf"]
 animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_gljqa")
+}],
+"loop": true,
+"name": &"Idle",
+"speed": 5.0
+}, {
 "frames": [{
 "duration": 1.0,
 "texture": ExtResource("2_qurb2")
@@ -35,6 +44,7 @@ script = ExtResource("1_hdtfb")
 [node name="Player" type="AnimatedSprite2D" parent="PlayerCam"]
 scale = Vector2(0.15, 0.15)
 sprite_frames = SubResource("SpriteFrames_0iamf")
+animation = &"Idle"
 
 [node name="Background" type="Sprite2D" parent="."]
 z_index = -1
