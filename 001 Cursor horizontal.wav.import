@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://fawqgfqspuk6"
+path="res://.godot/imported/001 Cursor horizontal.wav-c5a45838e829b67ec2aa887d4e9b828f.sample"
+
+[deps]
+
+source_file="res://001 Cursor horizontal.wav"
+dest_files=["res://.godot/imported/001 Cursor horizontal.wav-c5a45838e829b67ec2aa887d4e9b828f.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

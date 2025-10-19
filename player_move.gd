@@ -36,10 +36,11 @@ func _process(delta):
 		elif position.x >= -317 && position.x <= -140 && position.y >= -230 && position.y <= -188:
 			if !debounce:
 				get_tree().change_scene_to_file("res://island.tscn")
+				%Muis.play()
 				debounce = true
-		elif position.x >= 346 && position.x <= 394 && position.y >= 148 && position.y <= 247:
+		elif position.x >= 370 && position.x <= 431 && position.y >= 164 && position.y <= 262:
 			if !dialogueStop:
-				Globals.sayText.emit("Oh, hello.#Wouldn't it be nice to say hello back?#Type a print statement.&print('Hello!')")
+				Globals.sayText.emit("Oh, hello.#Wouldn't it be nice to say hello back?#PRINT: Hello!.&print('Hello!')")
 				dialogueStop = true
 	
 	if moving:

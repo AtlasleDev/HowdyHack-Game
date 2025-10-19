@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://b0mkk6avl8lo8"]
+[gd_scene load_steps=28 format=3 uid="uid://b0mkk6avl8lo8"]
 
 [ext_resource type="Texture2D" uid="uid://cqch3k2p58oug" path="res://IMG_0469.jpg" id="1_0iamf"]
 [ext_resource type="Script" uid="uid://e70eoacqxms" path="res://globals.gd" id="1_ad6l7"]
@@ -11,10 +11,13 @@
 [ext_resource type="Script" uid="uid://bromq4g74kaf1" path="res://Dialogue.gd" id="6_c7iw8"]
 [ext_resource type="Texture2D" uid="uid://duxaxh6liy4ck" path="res://MissRev-1.png.png" id="7_5jwi3"]
 [ext_resource type="Texture2D" uid="uid://cqsf6alfn3iv4" path="res://pixil-frame-0.png" id="10_8ervs"]
+[ext_resource type="AudioStream" uid="uid://dk05rlvet6n4i" path="res://007 Text blip.wav" id="10_cj5nf"]
 [ext_resource type="Script" uid="uid://jy02mxcq2v67" path="res://openig.gd" id="11_kjlm2"]
 [ext_resource type="Texture2D" uid="uid://c0iv0h3y5rcdb" path="res://pixil-frame-0 (1).png" id="11_nytiv"]
 [ext_resource type="Texture2D" uid="uid://bcgwfgthbwfvr" path="res://pixil-frame-0 (3).png" id="12_kjlm2"]
 [ext_resource type="Texture2D" uid="uid://f31js2ilg4ho" path="res://pixil-frame-0 (4).png" id="13_ad6l7"]
+[ext_resource type="AudioStream" uid="uid://hv0kvxism661" path="res://PhaseDistorterfail.wav" id="17_l23qb"]
+[ext_resource type="AudioStream" uid="uid://cqx01cporwlwh" path="res://102- Earthbound - Summers, Eternal Tourist Trap.mp3" id="18_aibdv"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_0iamf"]
 animations = [{
@@ -173,7 +176,7 @@ _data = {
 
 [sub_resource type="Animation" id="Animation_1y0xo"]
 resource_name = "Rocket"
-length = 11.27
+length = 13.4
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -181,7 +184,7 @@ tracks/0/path = NodePath(".:texture")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(9.833333, 9.966666, 10.066667, 10.133333),
+"times": PackedFloat32Array(11.533333, 11.666666, 11.766666, 11.833334),
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 1,
 "values": [ExtResource("10_8ervs"), ExtResource("11_nytiv"), ExtResource("12_kjlm2"), ExtResource("13_ad6l7")]
@@ -193,7 +196,7 @@ tracks/1/path = NodePath(".:position")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(9.833333, 10.066667),
+"times": PackedFloat32Array(11.533333, 11.766666),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Vector2(347.99997, -1736), Vector2(347.99994, -961)]
@@ -205,7 +208,7 @@ tracks/2/path = NodePath("../CutsceneCam:position")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(0, 4.1666665, 4.2, 4.2666664, 6.4666667, 6.5, 9.3, 10.066667, 10.2, 10.333333, 10.466666, 10.6, 10.733334, 10.866667),
+"times": PackedFloat32Array(0, 4.1666665, 4.2, 4.2666664, 8.166667, 8.200001, 11, 11.766666, 11.9, 12.033333, 12.166666, 12.300001, 12.433334, 12.566668),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
 "update": 0,
 "values": [Vector2(-1976, 1358), Vector2(-82, -385), Vector2(1581, 1392), Vector2(1581, 1392), Vector2(-1127, -571), Vector2(285, 285), Vector2(285, -998), Vector2(285, -998), Vector2(189, -998), Vector2(461, -998), Vector2(189, -998), Vector2(461, -998), Vector2(189, -998), Vector2(285, -998)]
@@ -217,7 +220,7 @@ tracks/3/path = NodePath("../CutsceneCam/Darkness:modulate")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
-"times": PackedFloat32Array(0, 3.75, 4.1666665, 4.266667, 4.6000004, 6.0333333, 6.45, 6.5331607, 6.866494),
+"times": PackedFloat32Array(0, 3.75, 4.1666665, 4.266667, 5.233333, 7.7333336, 8.15, 8.233161, 8.566494),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1),
 "update": 0,
 "values": [Color(1, 1, 1, 0), Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
@@ -229,11 +232,26 @@ tracks/4/path = NodePath("../PlayerCam/Player:visible")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
-"times": PackedFloat32Array(0.033333335, 11.266666),
+"times": PackedFloat32Array(0.033333335, 12.966667),
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
 "values": [false, true]
 }
+tracks/5/type = "audio"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Fall")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"clips": [{
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("17_l23qb")
+}],
+"times": PackedFloat32Array(9.533334)
+}
+tracks/5/use_blend = true
 
 [sub_resource type="Animation" id="Animation_k1f3g"]
 length = 0.001
@@ -355,6 +373,9 @@ libraries = {
 &"": SubResource("AnimationLibrary_1y0xo")
 }
 
+[node name="TextBlip" type="AudioStreamPlayer2D" parent="PlayerCam/text"]
+stream = ExtResource("10_cj5nf")
+
 [node name="Background" type="Sprite2D" parent="."]
 z_index = -1
 scale = Vector2(3, 3)
@@ -370,6 +391,8 @@ script = ExtResource("11_kjlm2")
 libraries = {
 &"": SubResource("AnimationLibrary_k1f3g")
 }
+
+[node name="Fall" type="AudioStreamPlayer2D" parent="Rocket"]
 
 [node name="CutsceneCam" type="Camera2D" parent="."]
 unique_name_in_owner = true
@@ -399,3 +422,8 @@ offset_top = -1459.0
 offset_right = -2004.0
 offset_bottom = 1431.0
 color = Color(0.24313726, 0.5254902, 0.61960787, 1)
+
+[node name="Muis" type="AudioStreamPlayer" parent="."]
+unique_name_in_owner = true
+stream = ExtResource("18_aibdv")
+volume_db = -13.0

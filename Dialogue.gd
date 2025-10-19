@@ -21,20 +21,24 @@ func texty(text) -> void:
 	for i in range(len(text)):
 		if text[i] == "@":
 			$text.text = $text.text.replace("@", "")
+			$TextBlip.play()
 			newDia = true
 			theRest = text.substr(i+1, len(text))
 			break
 		if text[i] == "#":
 			$text.text = $text.text.replace("#", "")
+			$TextBlip.play()
 			newDia = true
 			theRest = text.substr(i+1, len(text))
 			showRev = true
 			break
 		if text[i] == "&":
 			$text.text = $text.text.replace("&", "")
+			$TextBlip.play()
 			Globals.printGame.emit(text.substr(i+1, len(text)))
 			break
 		$text.text = $text.text + text[i]
+		$TextBlip.play()
 		await get_tree().create_timer(0.05).timeout
 	waiting_for_dialogue_input = true
 
