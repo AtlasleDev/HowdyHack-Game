@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://b0mkk6avl8lo8"]
+[gd_scene load_steps=15 format=3 uid="uid://b0mkk6avl8lo8"]
 
 [ext_resource type="Texture2D" uid="uid://cqch3k2p58oug" path="res://IMG_0469.jpg" id="1_0iamf"]
 [ext_resource type="Script" uid="uid://cfwnw5kxs6fp6" path="res://player_move.gd" id="1_hdtfb"]
@@ -6,6 +6,9 @@
 [ext_resource type="Texture2D" uid="uid://8sxsri0ems2f" path="res://character2_transparent.png" id="2_qurb2"]
 [ext_resource type="Texture2D" uid="uid://cs8w5o0rxo6uh" path="res://character1_transparent.png" id="3_04hb4"]
 [ext_resource type="Texture2D" uid="uid://bsavrw6pdjpd4" path="res://character_transparent.png" id="4_04hb4"]
+[ext_resource type="FontFile" uid="uid://pvckkosyucqd" path="res://upheavtt.ttf" id="6_b4opu"]
+[ext_resource type="Script" uid="uid://bromq4g74kaf1" path="res://Dialogue.gd" id="6_c7iw8"]
+[ext_resource type="Texture2D" uid="uid://duxaxh6liy4ck" path="res://MissRev-1.png.png" id="7_5jwi3"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_0iamf"]
 animations = [{
@@ -35,6 +38,92 @@ animations = [{
 "speed": 3.0
 }]
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_b4opu"]
+
+[sub_resource type="Animation" id="Animation_c7iw8"]
+resource_name = "Textboxmove"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.26666668),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-576, 324), Vector2(-576, 180)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("MissRev1_png:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.26666668, 0.43333337),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(789, -57), Vector2(789, -142)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("MissRev1_png:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.26666668, 0.43333334),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_8ervs"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-576, 324)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("MissRev1_png:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(789, -57)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("MissRev1_png:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_1y0xo"]
+_data = {
+&"RESET": SubResource("Animation_8ervs"),
+&"Textboxmove": SubResource("Animation_c7iw8")
+}
+
 [node name="Node2D" type="Node2D"]
 
 [node name="PlayerCam" type="Camera2D" parent="."]
@@ -45,6 +134,39 @@ script = ExtResource("1_hdtfb")
 scale = Vector2(0.15, 0.15)
 sprite_frames = SubResource("SpriteFrames_0iamf")
 animation = &"Idle"
+
+[node name="text" type="ColorRect" parent="PlayerCam"]
+visible = false
+z_index = 1
+offset_left = -576.0
+offset_top = 324.0
+offset_right = 576.0
+offset_bottom = 467.99994
+color = Color(0.474797, 8.4830447e-07, 2.4065375e-07, 1)
+script = ExtResource("6_c7iw8")
+
+[node name="text" type="RichTextLabel" parent="PlayerCam/text"]
+z_index = 2
+layout_mode = 0
+offset_right = 1152.0
+offset_bottom = 142.0
+theme_override_fonts/normal_font = ExtResource("6_b4opu")
+theme_override_font_sizes/normal_font_size = 40
+theme_override_styles/fill = SubResource("StyleBoxFlat_b4opu")
+text = "Sample text"
+scroll_active = false
+
+[node name="MissRev1_png" type="Sprite2D" parent="PlayerCam/text"]
+modulate = Color(1, 1, 1, 0)
+z_index = -1
+position = Vector2(789, -57)
+scale = Vector2(6.157583, 5.916667)
+texture = ExtResource("7_5jwi3")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="PlayerCam/text"]
+libraries = {
+&"": SubResource("AnimationLibrary_1y0xo")
+}
 
 [node name="Background" type="Sprite2D" parent="."]
 z_index = -1
