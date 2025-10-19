@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=3 uid="uid://b0mkk6avl8lo8"]
+[gd_scene load_steps=25 format=3 uid="uid://b0mkk6avl8lo8"]
 
 [ext_resource type="Texture2D" uid="uid://cqch3k2p58oug" path="res://IMG_0469.jpg" id="1_0iamf"]
 [ext_resource type="Script" uid="uid://e70eoacqxms" path="res://globals.gd" id="1_ad6l7"]
@@ -15,7 +15,6 @@
 [ext_resource type="Texture2D" uid="uid://c0iv0h3y5rcdb" path="res://pixil-frame-0 (1).png" id="11_nytiv"]
 [ext_resource type="Texture2D" uid="uid://bcgwfgthbwfvr" path="res://pixil-frame-0 (3).png" id="12_kjlm2"]
 [ext_resource type="Texture2D" uid="uid://f31js2ilg4ho" path="res://pixil-frame-0 (4).png" id="13_ad6l7"]
-[ext_resource type="Script" uid="uid://bibg7mxgvdvnb" path="res://door.gd" id="16_cj5nf"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_0iamf"]
 animations = [{
@@ -400,10 +399,3 @@ offset_top = -1459.0
 offset_right = -2004.0
 offset_bottom = 1431.0
 color = Color(0.24313726, 0.5254902, 0.61960787, 1)
-
-[node name="Area2D" type="Area2D" parent="."]
-unique_name_in_owner = true
-z_index = 1
-position = Vector2(-24, -639)
-collision_layer = 2
-script = ExtResource("16_cj5nf")

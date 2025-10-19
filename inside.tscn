@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://cq3g2vne60piy"]
+[gd_scene load_steps=19 format=3 uid="uid://cq3g2vne60piy"]
 
 [ext_resource type="Script" uid="uid://cfwnw5kxs6fp6" path="res://player_move.gd" id="1_7w7nv"]
 [ext_resource type="Texture2D" uid="uid://bkd7b682ovogm" path="res://character3_transparent.png" id="2_wu44j"]
@@ -8,6 +8,7 @@
 [ext_resource type="Script" uid="uid://bromq4g74kaf1" path="res://Dialogue.gd" id="7_j55qw"]
 [ext_resource type="FontFile" uid="uid://pvckkosyucqd" path="res://upheavtt.ttf" id="8_pjnb2"]
 [ext_resource type="Texture2D" uid="uid://duxaxh6liy4ck" path="res://MissRev-1.png.png" id="9_qinqa"]
+[ext_resource type="Texture2D" uid="uid://da6i35o3xxm3m" path="res://icon.svg" id="10_btxns"]
 [ext_resource type="Texture2D" uid="uid://cxoyppomtcm48" path="res://IMG_0484.jpg" id="10_wu44j"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_rdc0f"]
@@ -37,6 +38,9 @@ animations = [{
 "name": &"default",
 "speed": 3.0
 }]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wu44j"]
+size = Vector2(815.00006, 1160.0001)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fmtcj"]
 
@@ -165,11 +169,14 @@ _data = {
 &"Textboxmove2": SubResource("Animation_ad6l7")
 }
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_btxns"]
+size = Vector2(149, 146)
+
 [node name="Node2D" type="Node2D"]
 
 [node name="PlayerCam" type="Camera2D" parent="."]
 unique_name_in_owner = true
-position = Vector2(-220, -208)
+position = Vector2(-220, 13)
 script = ExtResource("1_7w7nv")
 
 [node name="Player" type="AnimatedSprite2D" parent="PlayerCam"]
@@ -178,6 +185,13 @@ z_index = 1
 scale = Vector2(0.2, 0.2)
 sprite_frames = SubResource("SpriteFrames_rdc0f")
 animation = &"Idle"
+
+[node name="Playes" type="Area2D" parent="PlayerCam/Player"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerCam/Player/Playes"]
+position = Vector2(-57.5, -60)
+scale = Vector2(0.99999976, 0.99999976)
+shape = SubResource("RectangleShape2D_wu44j")
 
 [node name="text" type="ColorRect" parent="PlayerCam"]
 visible = false
@@ -202,6 +216,7 @@ scroll_active = false
 
 [node name="MissRev1_png" type="Sprite2D" parent="PlayerCam/text"]
 unique_name_in_owner = true
+visible = false
 modulate = Color(1, 1, 1, 0)
 z_index = -1
 position = Vector2(789, -57)
@@ -215,3 +230,13 @@ libraries = {
 
 [node name="Img0484" type="Sprite2D" parent="."]
 texture = ExtResource("10_wu44j")
+
+[node name="Npc" type="Sprite2D" parent="."]
+position = Vector2(495, 266)
+texture = ExtResource("10_btxns")
+
+[node name="Area2D" type="Area2D" parent="Npc"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Npc/Area2D"]
+position = Vector2(-1.5, -2)
+shape = SubResource("RectangleShape2D_btxns")
