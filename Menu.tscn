@@ -1,20 +1,16 @@
-<<<<<<< HEAD
-[gd_scene load_steps=0 format=3 uid="uid://mncn7eb57oqh"]
-=======
-[gd_scene load_steps=3 format=3 uid="uid://mncn7eb57oqh"]
+[gd_scene load_steps=3 format=3 uid="uid://bxg8sbm00tp2b"]
 
-[ext_resource type="Texture2D" uid="uid://cycvi8jwhuvrc" path="res://revtitlescreen.png" id="1_5yleq"]
-[ext_resource type="FontFile" uid="uid://pvckkosyucqd" path="res://upheavtt.ttf" id="2_ylpcl"]
->>>>>>> a51c21e72bf524c9dcf076effb02ace30c200788
+[ext_resource type="Texture2D" uid="uid://cycvi8jwhuvrc" path="res://revtitlescreen.png" id="1_ouk20"]
+[ext_resource type="FontFile" uid="uid://pvckkosyucqd" path="res://upheavtt.ttf" id="2_mae5d"]
 
 [node name="Node2D" type="Node2D"]
 
 [node name="Camera2D" type="Camera2D" parent="."]
 
 [node name="Revtitlescreen" type="Sprite2D" parent="."]
-position = Vector2(8, -102.00001)
-scale = Vector2(0.31596678, 0.3159668)
-texture = ExtResource("1_5yleq")
+position = Vector2(0, -72)
+scale = Vector2(0.49804688, 0.49804688)
+texture = ExtResource("1_ouk20")
 
 [node name="Control" type="Control" parent="."]
 layout_mode = 3
@@ -24,42 +20,12 @@ offset_bottom = 40.0
 
 [node name="Button" type="Button" parent="Control"]
 layout_mode = 0
-offset_left = -167.0
-offset_top = 76.0
-offset_right = 167.0
-offset_bottom = 113.0
-theme_override_colors/font_color = Color(0.99607843, 0.95686275, 0.8627451, 1)
-theme_override_colors/font_focus_color = Color(0.99607843, 0.95686275, 0.8627451, 1)
-theme_override_colors/font_pressed_color = Color(0.99607843, 0.95686275, 0.8627451, 1)
-theme_override_colors/font_outline_color = Color(0.34509805, 0.09019608, 0.101960786, 1)
-theme_override_fonts/font = ExtResource("2_ylpcl")
-theme_override_font_sizes/font_size = 32
-text = "Startt"
-
-[node name="Button2" type="Button" parent="Control"]
-layout_mode = 0
-offset_left = -167.0
-offset_top = 128.0
-offset_right = 167.0
-offset_bottom = 165.0
-theme_override_colors/font_color = Color(0.99607843, 0.95686275, 0.8627451, 1)
-theme_override_colors/font_focus_color = Color(0.99607843, 0.95686275, 0.8627451, 1)
-theme_override_colors/font_pressed_color = Color(0.99607843, 0.95686275, 0.8627451, 1)
-theme_override_colors/font_outline_color = Color(0.34509805, 0.09019608, 0.101960786, 1)
-theme_override_fonts/font = ExtResource("2_ylpcl")
-theme_override_font_sizes/font_size = 32
-text = "Settings"
-
-[node name="Button3" type="Button" parent="Control"]
-layout_mode = 0
-offset_left = -167.0
-offset_top = 177.0
-offset_right = 167.0
-offset_bottom = 214.0
-theme_override_colors/font_color = Color(0.99607843, 0.95686275, 0.8627451, 1)
-theme_override_colors/font_focus_color = Color(0.99607843, 0.95686275, 0.8627451, 1)
-theme_override_colors/font_pressed_color = Color(0.99607843, 0.95686275, 0.8627451, 1)
-theme_override_colors/font_outline_color = Color(0.34509805, 0.09019608, 0.101960786, 1)
-theme_override_fonts/font = ExtResource("2_ylpcl")
-theme_override_font_sizes/font_size = 32
-text = "Quit"
+offset_left = -255.0
+offset_top = 166.0
+offset_right = 0.5
+offset_bottom = 208.0
+scale = Vector2(2, 2)
+theme_override_fonts/font = ExtResource("2_mae5d")
+theme_override_font_sizes/font_size = 37
+text = "Start Game
+"
